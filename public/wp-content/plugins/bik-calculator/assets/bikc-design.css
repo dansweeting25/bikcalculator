@@ -1,0 +1,266 @@
+/* BiK design system
+ * ---------------------------------------------------------------------------
+ * The tokens and building blocks the calculator is made from, available to the
+ * rest of your site. Turn it on at Settings -> BiK Calculator ("Load the design
+ * system on every page"), then use these classes in a WPBakery Raw HTML element,
+ * a Breakdance code block, or anywhere else.
+ *
+ * Change a token here and everything follows — the calculator included.
+ */
+
+:root {
+	/* Colour */
+	--bikc-ink:        #161a25;
+	--bikc-ink-soft:   #5d6478;
+	--bikc-paper:      #ffffff;
+	--bikc-tint:       #f5f6f9;
+	--bikc-line:       #e3e6ed;
+	--bikc-line-soft:  #eff1f5;
+	--bikc-accent:     #2a3ad6;
+	--bikc-cost:       #a8281d;
+	--bikc-credit:     #0b6f4d;
+	--bikc-stub:       #161a25;
+	--bikc-stub-ink:   #f2f3f7;
+
+	/* Type */
+	--bikc-font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+	/* Type scale */
+	--bikc-t-display: clamp(34px, 5vw, 54px);
+	--bikc-t-h1:      clamp(28px, 4vw, 40px);
+	--bikc-t-h2:      clamp(22px, 2.6vw, 28px);
+	--bikc-t-h3:      19px;
+	--bikc-t-body:    16px;
+	--bikc-t-small:   13px;
+
+	/* Shape */
+	--bikc-radius: 10px;
+	--bikc-radius-sm: 7px;
+	--bikc-gap: 20px;
+}
+
+/* Applied to <body> only when the site-wide option is on. */
+body.bikc-typeset,
+body.bikc-typeset input,
+body.bikc-typeset select,
+body.bikc-typeset textarea,
+body.bikc-typeset button {
+	font-family: var(--bikc-font);
+}
+
+body.bikc-typeset {
+	color: var(--bikc-ink);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------- Typography */
+
+.bikc-display, .bikc-h1, .bikc-h2, .bikc-h3 {
+	font-family: var(--bikc-font);
+	color: var(--bikc-ink);
+	letter-spacing: -.02em;
+	line-height: 1.12;
+	margin: 0 0 12px;
+}
+
+.bikc-display { font-size: var(--bikc-t-display); font-weight: 700; }
+.bikc-h1      { font-size: var(--bikc-t-h1);      font-weight: 700; }
+.bikc-h2      { font-size: var(--bikc-t-h2);      font-weight: 650; }
+.bikc-h3      { font-size: var(--bikc-t-h3);      font-weight: 650; letter-spacing: -.01em; }
+
+.bikc-lede {
+	font-family: var(--bikc-font);
+	font-size: 17px;
+	line-height: 1.55;
+	color: var(--bikc-ink-soft);
+	max-width: 46em;
+	margin: 0 0 16px;
+}
+
+.bikc-eyebrow {
+	font-family: var(--bikc-font);
+	font-size: 12px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--bikc-accent);
+	margin: 0 0 6px;
+}
+
+.bikc-small { font-size: var(--bikc-t-small); color: var(--bikc-ink-soft); }
+
+/* Any figure that should line up in a column. */
+.bikc-figure, .bikc-table td, .bikc-stat-value {
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}
+
+/* -------------------------------------------------------------------- Cards */
+
+.bikc-card {
+	background: var(--bikc-paper);
+	border: 1px solid var(--bikc-line);
+	border-radius: var(--bikc-radius);
+	padding: 22px;
+	font-family: var(--bikc-font);
+}
+
+.bikc-card--tint { background: var(--bikc-tint); }
+
+.bikc-card--dark {
+	background: var(--bikc-stub);
+	color: var(--bikc-stub-ink);
+	border-color: transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+/* The torn payslip edge from the results panel, reusable. */
+.bikc-card--stub::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 6px;
+	background: radial-gradient(circle at 5px 0, transparent 0 4px, var(--bikc-stub) 4.5px) repeat-x;
+	background-size: 10px 6px;
+}
+
+.bikc-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: var(--bikc-gap);
+}
+
+/* -------------------------------------------------------------------- Stats */
+
+.bikc-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: var(--bikc-gap);
+}
+
+.bikc-stat { font-family: var(--bikc-font); }
+
+.bikc-stat-label {
+	display: block;
+	font-size: 12px;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--bikc-ink-soft);
+	margin-bottom: 4px;
+}
+
+.bikc-stat-value {
+	display: block;
+	font-size: clamp(28px, 3.4vw, 38px);
+	font-weight: 700;
+	letter-spacing: -.03em;
+	line-height: 1.05;
+}
+
+.bikc-stat-note { display: block; font-size: 13px; color: var(--bikc-ink-soft); margin-top: 4px; }
+
+.bikc-stat--cost   .bikc-stat-value { color: var(--bikc-cost); }
+.bikc-stat--credit .bikc-stat-value { color: var(--bikc-credit); }
+
+/* ------------------------------------------------------------------- Tables */
+
+.bikc-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: var(--bikc-font);
+	font-size: 15px;
+}
+
+.bikc-table th {
+	text-align: left;
+	font-size: 11.5px;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--bikc-ink-soft);
+	padding: 0 12px 8px 0;
+	border-bottom: 2px solid var(--bikc-ink);
+}
+
+.bikc-table td {
+	padding: 11px 12px 11px 0;
+	border-bottom: 1px solid var(--bikc-line-soft);
+}
+
+.bikc-table tr:hover td { background: var(--bikc-tint); }
+
+.bikc-table th:last-child,
+.bikc-table td:last-child { text-align: right; padding-right: 0; }
+
+/* ------------------------------------------------------------------ Buttons */
+
+.bikc-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--bikc-font);
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1;
+	padding: 12px 20px;
+	border-radius: var(--bikc-radius-sm);
+	border: 1px solid var(--bikc-accent);
+	background: var(--bikc-accent);
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: filter .12s, background .12s, color .12s;
+}
+
+.bikc-btn:hover { filter: brightness(1.12); color: #fff; }
+
+.bikc-btn--ghost {
+	background: transparent;
+	color: var(--bikc-ink);
+	border-color: var(--bikc-line);
+}
+
+.bikc-btn--ghost:hover { background: var(--bikc-tint); color: var(--bikc-ink); filter: none; }
+
+/* -------------------------------------------------------------------- Bits */
+
+.bikc-pill {
+	display: inline-block;
+	font-family: var(--bikc-font);
+	font-size: 12px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: var(--bikc-tint);
+	color: var(--bikc-ink-soft);
+	border: 1px solid var(--bikc-line);
+}
+
+.bikc-pill--accent { background: var(--bikc-accent); color: #fff; border-color: transparent; }
+
+.bikc-callout {
+	font-family: var(--bikc-font);
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--bikc-ink-soft);
+	padding: 14px 16px;
+	background: var(--bikc-tint);
+	border-radius: 8px;
+	border-left: 3px solid var(--bikc-accent);
+}
+
+.bikc-rule { height: 2px; background: var(--bikc-ink); border: 0; margin: 32px 0; }
+.bikc-rule--soft { height: 1px; background: var(--bikc-line); }
+
+/* Section wrapper with sensible max width and rhythm. */
+.bikc-section {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 48px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bikc-btn { transition: none; }
+}

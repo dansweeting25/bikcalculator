@@ -1,0 +1,661 @@
+/* Benefit in Kind Calculator
+ * Everything is scoped to .bikc so it will not leak into your theme.
+ * Change the tokens in the first block to restyle the whole thing.
+ */
+
+.bikc {
+	/* --- Colour ------------------------------------------------------- */
+	--bikc-ink:        #161a25;
+	--bikc-ink-soft:   #5d6478;
+	--bikc-paper:      #ffffff;
+	--bikc-tint:       #f5f6f9;
+	--bikc-line:       #e3e6ed;
+	--bikc-line-soft:  #eff1f5;
+	--bikc-accent:     #2a3ad6;
+	--bikc-cost:       #a8281d;
+	--bikc-credit:     #0b6f4d;
+	--bikc-stub:       #161a25;
+	--bikc-stub-ink:   #f2f3f7;
+
+	/* Type comes from bikc-design.css (Montserrat). Override --bikc-font
+	 * there, or here, to change it everywhere. */
+
+	/* --- Shape -------------------------------------------------------- */
+	--bikc-radius: 10px;
+	--bikc-gap: 20px;
+
+	font-family: var(--bikc-font);
+	color: var(--bikc-ink);
+	line-height: 1.5;
+	max-width: 1180px;
+	margin: 0 auto;
+	container-type: inline-size;
+}
+
+.bikc *,
+.bikc *::before,
+.bikc *::after { box-sizing: border-box; }
+
+/* Every money figure lines up in a column, like a real payslip. */
+.bikc [data-money],
+.bikc .bikc-ledger-cost,
+.bikc .bikc-ledger-value,
+.bikc .bikc-meta-figure,
+.bikc .bikc-headline-figure,
+.bikc .bikc-takehome-row span:last-child {
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}
+
+/* ---------------------------------------------------------------- Head */
+
+.bikc-masthead { margin-bottom: 28px; }
+
+.bikc-eyebrow {
+	font-size: 12px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--bikc-accent);
+	margin: 0 0 6px;
+}
+
+.bikc-title {
+	font-size: clamp(28px, 4vw, 40px);
+	line-height: 1.1;
+	letter-spacing: -.02em;
+	margin: 0 0 10px;
+	font-weight: 700;
+}
+
+.bikc-standfirst {
+	margin: 0;
+	max-width: 46em;
+	color: var(--bikc-ink-soft);
+	font-size: 17px;
+}
+
+/* -------------------------------------------------------------- Layout */
+
+.bikc-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+	gap: 28px;
+	align-items: start;
+}
+
+@container (max-width: 860px) {
+	.bikc-layout { grid-template-columns: 1fr; }
+	.bikc-col-results { order: -1; }
+}
+
+/* -------------------------------------------------------------- Panels */
+
+.bikc-panel {
+	background: var(--bikc-paper);
+	border: 1px solid var(--bikc-line);
+	border-radius: var(--bikc-radius);
+	padding: 22px;
+	margin-bottom: var(--bikc-gap);
+}
+
+.bikc-panel-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 18px;
+	font-weight: 650;
+	margin: 0 0 4px;
+	letter-spacing: -.01em;
+}
+
+.bikc-step {
+	display: grid;
+	place-items: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: var(--bikc-accent);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 700;
+	flex: none;
+}
+
+.bikc-panel-sub {
+	margin: 0 0 16px;
+	color: var(--bikc-ink-soft);
+	font-size: 14px;
+}
+
+.bikc-panel-title + .bikc-grid { margin-top: 18px; }
+
+/* -------------------------------------------------------------- Fields */
+
+.bikc-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+@container (max-width: 520px) {
+	.bikc-grid { grid-template-columns: 1fr; }
+}
+
+.bikc-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+}
+
+.bikc-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--bikc-ink);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.bikc input[type="text"],
+.bikc select {
+	width: 100%;
+	font: inherit;
+	font-size: 15px;
+	color: var(--bikc-ink);
+	background: var(--bikc-paper);
+	border: 1px solid var(--bikc-line);
+	border-radius: 7px;
+	padding: 9px 11px;
+	appearance: none;
+	-webkit-appearance: none;
+	transition: border-color .12s, box-shadow .12s;
+}
+
+.bikc select {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%235d6478' d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 11px center;
+	background-size: 11px;
+	padding-right: 32px;
+}
+
+.bikc input[type="text"]:focus,
+.bikc select:focus,
+.bikc input[type="checkbox"]:focus-visible,
+.bikc button:focus-visible {
+	outline: 2px solid var(--bikc-accent);
+	outline-offset: 1px;
+	border-color: var(--bikc-accent);
+}
+
+.bikc-input-wrap { position: relative; display: block; }
+
+.bikc-input-wrap::before {
+	content: attr(data-prefix);
+	position: absolute;
+	left: 11px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--bikc-ink-soft);
+	font-size: 15px;
+	pointer-events: none;
+}
+
+.bikc-input-wrap[data-prefix] input { padding-left: 26px; }
+
+.bikc-input-wrap[data-suffix=""]::after { content: none; }
+.bikc-input-wrap[data-suffix=""] input { padding-right: 11px; }
+
+.bikc-input-wrap[data-suffix]::after {
+	content: attr(data-suffix);
+	position: absolute;
+	right: 11px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--bikc-ink-soft);
+	font-size: 15px;
+	pointer-events: none;
+}
+
+.bikc-input-wrap[data-suffix] input { padding-right: 78px; }
+.bikc-input-wrap[data-suffix="%"] input { padding-right: 28px; }
+
+.bikc-note {
+	font-size: 12.5px;
+	color: var(--bikc-ink-soft);
+	line-height: 1.4;
+}
+
+.bikc-note.is-warn { color: var(--bikc-cost); }
+
+/* Help buttons and tips */
+
+.bikc-help {
+	all: unset;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: var(--bikc-line);
+	color: var(--bikc-ink-soft);
+	font-size: 11px;
+	font-weight: 700;
+	flex: none;
+}
+
+.bikc-help:hover { background: var(--bikc-accent); color: #fff; }
+
+.bikc-tip {
+	flex-basis: 100%;
+	margin-top: 4px;
+	background: var(--bikc-ink);
+	color: #fff;
+	font-size: 12.5px;
+	font-weight: 400;
+	line-height: 1.45;
+	padding: 8px 10px;
+	border-radius: 6px;
+}
+
+/* ------------------------------------------------------------ Benefits */
+
+.bikc-group + .bikc-group { margin-top: 24px; }
+
+.bikc-group-title {
+	font-size: 11.5px;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--bikc-ink-soft);
+	margin: 0 0 8px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid var(--bikc-line-soft);
+}
+
+.bikc-benefit {
+	border: 1px solid transparent;
+	border-radius: 8px;
+	margin: 0 -8px;
+	transition: background .12s, border-color .12s;
+}
+
+.bikc-benefit.is-open {
+	background: var(--bikc-tint);
+	border-color: var(--bikc-line);
+}
+
+.bikc-benefit-head {
+	display: flex;
+	align-items: flex-start;
+	gap: 11px;
+	padding: 11px 12px;
+	cursor: pointer;
+}
+
+.bikc input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 18px;
+	height: 18px;
+	margin: 2px 0 0;
+	flex: none;
+	border: 1.5px solid var(--bikc-line);
+	border-radius: 5px;
+	background: var(--bikc-paper);
+	cursor: pointer;
+	position: relative;
+}
+
+.bikc input[type="checkbox"]:checked {
+	background: var(--bikc-accent);
+	border-color: var(--bikc-accent);
+}
+
+.bikc input[type="checkbox"]:checked::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='m3 7.4 2.7 2.7L11 4.4'/%3E%3C/svg%3E") center/13px no-repeat;
+}
+
+.bikc-benefit-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.bikc-benefit-name { font-size: 15px; font-weight: 600; }
+.bikc-benefit-blurb { font-size: 13px; color: var(--bikc-ink-soft); line-height: 1.4; }
+
+/* Collapsed by default. Uses a class rather than the hidden attribute,
+ * because a display rule would override [hidden] and leak every field open. */
+.bikc-benefit-body { display: none; }
+
+.bikc-benefit.is-open .bikc-benefit-body {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+	padding: 4px 12px 16px 41px;
+}
+
+.bikc .is-hidden { display: none !important; }
+
+@container (max-width: 520px) {
+	.bikc-benefit.is-open .bikc-benefit-body { grid-template-columns: 1fr; padding-left: 12px; }
+}
+
+.bikc-field--check {
+	flex-direction: row;
+	align-items: center;
+	gap: 9px;
+	grid-column: 1 / -1;
+}
+
+.bikc-field--check .bikc-label { font-weight: 500; font-size: 13.5px; }
+
+/* ----------------------------------------------------------- The stub */
+
+.bikc-col-results { position: sticky; top: 20px; }
+
+@container (max-width: 860px) {
+	.bikc-col-results { position: static; }
+}
+
+.bikc-stub {
+	background: var(--bikc-stub);
+	color: var(--bikc-stub-ink);
+	border-radius: var(--bikc-radius);
+	overflow: hidden;
+	position: relative;
+}
+
+/* The signature: a torn-off payslip edge along the top. */
+.bikc-stub::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 6px;
+	background:
+		radial-gradient(circle at 5px 0, transparent 0 4px, var(--bikc-stub) 4.5px) repeat-x;
+	background-size: 10px 6px;
+	z-index: 2;
+}
+
+.bikc-stub-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 20px 20px 0;
+	flex-wrap: wrap;
+}
+
+.bikc-stub-title {
+	font-size: 11.5px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	font-weight: 700;
+	opacity: .62;
+}
+
+.bikc-toggle {
+	display: inline-flex;
+	background: rgba(255, 255, 255, .09);
+	border-radius: 999px;
+	padding: 2px;
+}
+
+.bikc-toggle button {
+	all: unset;
+	cursor: pointer;
+	font-size: 12.5px;
+	font-weight: 600;
+	padding: 5px 12px;
+	border-radius: 999px;
+	color: rgba(255, 255, 255, .68);
+	transition: background .12s, color .12s;
+}
+
+.bikc-toggle button.is-active { background: #fff; color: var(--bikc-ink); }
+
+.bikc-headline { padding: 18px 20px 20px; }
+
+.bikc-headline-label {
+	display: block;
+	font-size: 13px;
+	opacity: .62;
+	margin-bottom: 2px;
+}
+
+.bikc-headline-figure {
+	display: block;
+	font-size: clamp(38px, 7cqi, 52px);
+	font-weight: 700;
+	letter-spacing: -.035em;
+	line-height: 1.05;
+}
+
+.bikc-headline-sub {
+	display: block;
+	font-size: 13px;
+	opacity: .62;
+	margin-top: 6px;
+}
+
+/* Ledger */
+
+.bikc-ledger {
+	margin: 0;
+	padding: 4px 20px 8px;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0;
+	border-top: 1px solid rgba(255, 255, 255, .11);
+}
+
+.bikc-ledger-term,
+.bikc-ledger-cost {
+	padding: 11px 0;
+	border-bottom: 1px dotted rgba(255, 255, 255, .16);
+	margin: 0;
+}
+
+.bikc-ledger-term { display: flex; flex-direction: column; gap: 1px; padding-right: 16px; }
+.bikc-ledger-name { font-size: 14.5px; font-weight: 600; }
+.bikc-ledger-note { font-size: 12px; opacity: .55; line-height: 1.35; }
+.bikc-ledger-value { font-size: 12px; opacity: .55; }
+
+.bikc-ledger-cost {
+	font-size: 15px;
+	font-weight: 650;
+	text-align: right;
+	white-space: nowrap;
+	color: #ff9d92;
+}
+
+.bikc-ledger-cost.is-credit,
+.bikc-ledger-term.is-credit .bikc-ledger-name { color: #6fe0b0; }
+
+.bikc-ledger-empty {
+	padding: 14px 0;
+	font-size: 14px;
+	opacity: .5;
+	border: 0;
+}
+
+/* Take-home comparison */
+
+.bikc-takehome {
+	padding: 14px 20px;
+	background: rgba(255, 255, 255, .05);
+}
+
+.bikc-takehome-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	font-size: 14px;
+	padding: 4px 0;
+	opacity: .72;
+}
+
+.bikc-takehome-row--after {
+	opacity: 1;
+	font-weight: 650;
+	border-top: 1px solid rgba(255, 255, 255, .13);
+	margin-top: 4px;
+	padding-top: 9px;
+}
+
+/* Meta */
+
+.bikc-meta { padding: 14px 20px 20px; }
+
+.bikc-meta-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 14px;
+	font-size: 13px;
+	padding: 5px 0;
+	opacity: .74;
+}
+
+.bikc-meta-figure { font-weight: 600; white-space: nowrap; }
+
+/* --------------------------------------------------------- Disclaimer */
+
+.bikc-disclaimer {
+	font-size: 12.5px;
+	color: var(--bikc-ink-soft);
+	line-height: 1.5;
+	margin: 0 0 var(--bikc-gap);
+	padding: 12px 14px;
+	background: var(--bikc-tint);
+	border-radius: 8px;
+	border-left: 3px solid var(--bikc-line);
+}
+
+/* -------------------------------------------------------------- Guide */
+
+.bikc-guide {
+	margin-top: 40px;
+	padding-top: 32px;
+	border-top: 2px solid var(--bikc-ink);
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 32px;
+}
+
+@container (max-width: 760px) {
+	.bikc-guide { grid-template-columns: 1fr; gap: 26px; }
+}
+
+.bikc-guide-block h3 {
+	font-size: 19px;
+	font-weight: 650;
+	letter-spacing: -.01em;
+	margin: 0 0 10px;
+}
+
+.bikc-guide-block p { margin: 0 0 10px; font-size: 15px; color: var(--bikc-ink-soft); }
+
+.bikc-steps,
+.bikc-exempt { margin: 0; padding-left: 1.15em; }
+
+.bikc-steps li,
+.bikc-exempt li {
+	font-size: 15px;
+	color: var(--bikc-ink-soft);
+	margin-bottom: 8px;
+	line-height: 1.5;
+}
+
+.bikc-steps li strong,
+.bikc-exempt li strong { color: var(--bikc-ink); }
+
+.bikc-steps { counter-reset: none; }
+
+/* ------------------------------------------------------------ Motion */
+
+@media (prefers-reduced-motion: reduce) {
+	.bikc *, .bikc *::before, .bikc *::after {
+		transition-duration: .01ms !important;
+		animation-duration: .01ms !important;
+	}
+}
+
+
+/* Fallback for browsers without container query support. */
+@supports not (container-type: inline-size) {
+	@media (max-width: 900px) {
+		.bikc-layout { grid-template-columns: 1fr; }
+		.bikc-col-results { order: -1; position: static; }
+		.bikc-guide { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 560px) {
+		.bikc-grid { grid-template-columns: 1fr; }
+		.bikc-benefit.is-open .bikc-benefit-body { grid-template-columns: 1fr; padding-left: 12px; }
+	}
+}
+
+
+/* ------------------------------------------------- Panel head with a toggle */
+
+.bikc-panel-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.bikc-panel-head .bikc-panel-title { margin-bottom: 0; }
+
+.bikc-toggle--light {
+	background: var(--bikc-tint);
+	border: 1px solid var(--bikc-line);
+}
+
+.bikc-toggle--light button { color: var(--bikc-ink-soft); }
+
+.bikc-toggle--light button.is-active {
+	background: var(--bikc-ink);
+	color: #fff;
+}
+
+/* ------------------------------------------------------------ Pension panel */
+
+.bikc-input-row { display: flex; gap: 8px; align-items: stretch; }
+.bikc-input-row .bikc-input-wrap { flex: 1 1 auto; min-width: 0; }
+.bikc-input-row select { flex: 0 0 auto; width: auto; }
+
+.bikc-pension-out {
+	margin-top: 18px;
+	padding-top: 14px;
+	border-top: 1px solid var(--bikc-line-soft);
+}
+
+.bikc-pension-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 14px;
+	font-size: 14px;
+	padding: 6px 0;
+	color: var(--bikc-ink-soft);
+}
+
+.bikc-pension-row.is-strong { color: var(--bikc-ink); font-weight: 600; }
+.bikc-pension-row.is-credit .bikc-meta-figure { color: var(--bikc-credit); }
+.bikc-pension-row .bikc-meta-figure { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.bikc-pension-note,
+.bikc-pension-empty {
+	font-size: 12.5px;
+	line-height: 1.5;
+	color: var(--bikc-ink-soft);
+	margin: 10px 0 0;
+	padding-left: 12px;
+	border-left: 2px solid var(--bikc-line);
+}
+
+.bikc-pension-empty { border-left-color: transparent; padding-left: 0; margin-top: 0; }

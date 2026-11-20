@@ -1,0 +1,841 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base path="/" bodyClass="home wp-singular page-template-default page page-id-15 wp-theme-breakdance-zero breakdance">
+<Fragment slot="head-3">
+<title>wordpress-1540631-6595484.cloudwaysapps.com</title>
+</Fragment>
+<Fragment slot="head-7">
+<link rel="stylesheet" id="bikc-font-css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" media="all">
+<link rel="stylesheet" id="bikc-design-css" href="/wp-content/plugins/bik-calculator/assets/bikc-design.css?ver=1.2.0" media="all">
+<link rel="stylesheet" id="bikc-css" href="/wp-content/plugins/bik-calculator/assets/bikc.css?ver=1.2.0" media="all">
+<link rel="canonical" href="https://wordpress-1540631-6595484.cloudwaysapps.com/">
+<link rel="stylesheet" href="/wp-content/uploads/breakdance/css/post-15-defaults.css?v=408059c3b9145d29a73fe3d6deb2feac">
+</Fragment>
+<Fragment slot="head-8">
+<link rel="stylesheet" href="/wp-content/uploads/breakdance/css/post-15.css?v=cd1f828b2d77080a6550548081693f18">
+</Fragment>
+<main id="bde-main"><section class="bde-section-15-100 bde-section">
+  
+  
+	
+
+
+
+<div class="section-container"><div class="bde-shortcode-15-101 bde-shortcode">		<div class="bikc" data-bikc="">
+
+							<header class="bikc-masthead">
+					<p class="bikc-eyebrow">UK tax year 2026/27</p>
+					<h2 class="bikc-title">What will your benefits cost you?</h2>
+					<p class="bikc-standfirst">
+						Company cars, medical cover, gym memberships and the rest are taxed as if
+						they were extra pay. Add yours below and see what leaves your payslip.
+					</p>
+				</header>
+			
+			<div class="bikc-layout">
+
+				<div class="bikc-col-input">
+
+					<section class="bikc-panel">
+						<h3 class="bikc-panel-title"><span class="bikc-step">1</span> About you</h3>
+
+						<div class="bikc-grid">
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-salary">Annual salary</label>
+								<span class="bikc-input-wrap" data-prefix="£">
+									<input type="text" inputmode="decimal" id="bikc-salary" value="35000">
+								</span>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-bonus">Bonus</label>
+								<span class="bikc-input-wrap" data-prefix="£">
+									<input type="text" inputmode="decimal" id="bikc-bonus" value="0">
+								</span>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-bonus-freq">Bonus is</label>
+								<select id="bikc-bonus-freq">
+									<option value="12">Per year</option>
+									<option value="1">Per month</option>
+								</select>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-region">Where you live</label>
+								<select id="bikc-region">
+									<option value="ruk" selected="selected">England, Wales or NI</option>
+									<option value="scotland">Scotland</option>
+								</select>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-taxcode">
+									Tax code
+									<button type="button" class="bikc-help" data-help="Optional. Leave it blank and we use the standard allowance for your income. A code starting with S means Scotland. BR, D0 and D1 mean the whole job is taxed at one rate. A K code means your benefits already outweigh your allowance.">?</button>
+								</label>
+								<input type="text" id="bikc-taxcode" placeholder="1257L" maxlength="10" autocomplete="off">
+								<span class="bikc-note" id="bikc-taxcode-note"></span>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-student">Student loan</label>
+								<select id="bikc-student">
+									<option value="">None</option>
+																			<option value="plan1">Plan 1</option>
+																			<option value="plan2">Plan 2</option>
+																			<option value="plan4">Plan 4 (Scotland)</option>
+																			<option value="plan5">Plan 5</option>
+																			<option value="pgl">Postgraduate Loan</option>
+																	</select>
+							</div>
+						</div>
+					</section>
+
+					<section class="bikc-panel">
+						<h3 class="bikc-panel-title"><span class="bikc-step">2</span> Your pension</h3>
+						<p class="bikc-panel-sub">How you pay in changes your tax, and sometimes your National Insurance too.</p>
+
+						<div class="bikc-grid">
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-pension-type">
+									How you pay in
+									<button type="button" class="bikc-help" data-help="Salary sacrifice comes off your gross pay, so you save income tax and National Insurance. Net pay comes off before tax but after NI is worked out. Relief at source comes out of your take-home pay and the provider claims basic-rate tax back for you. If you are not sure, check your payslip or ask payroll — most auto-enrolment schemes are relief at source.">?</button>
+								</label>
+								<select id="bikc-pension-type">
+									<option value="none">I don't pay into one</option>
+									<option value="salsac">Salary sacrifice</option>
+									<option value="netpay">Net pay — taken before tax</option>
+									<option value="ras" selected="">Relief at source — taken after tax</option>
+								</select>
+							</div>
+
+							<div class="bikc-field" id="bikc-pension-pct-field">
+								<label class="bikc-label" for="bikc-pension">Your contribution</label>
+								<span class="bikc-input-wrap" data-suffix="% of salary">
+									<input type="text" inputmode="decimal" id="bikc-pension" value="5">
+								</span>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-pension-extra">
+									Extra salary sacrifice
+									<button type="button" class="bikc-help" data-help="Anything you sacrifice on top of your standard contribution — an AVC, or a bonus paid straight into the pension. This always comes off gross pay, whatever your main scheme type is.">?</button>
+								</label>
+								<span class="bikc-input-row">
+									<span class="bikc-input-wrap" data-prefix="£">
+										<input type="text" inputmode="decimal" id="bikc-pension-extra" value="0">
+									</span>
+									<select id="bikc-pension-extra-freq" aria-label="Extra sacrifice period">
+										<option value="12">a month</option>
+										<option value="1">a year</option>
+									</select>
+								</span>
+							</div>
+
+							<div class="bikc-field">
+								<label class="bikc-label" for="bikc-pension-employer">
+									Employer contribution
+									<button type="button" class="bikc-help" data-help="Not taxable and not a benefit in kind — but it counts towards your annual allowance, so we track it.">?</button>
+								</label>
+								<span class="bikc-input-wrap" data-suffix="% of salary">
+									<input type="text" inputmode="decimal" id="bikc-pension-employer" value="3">
+								</span>
+							</div>
+						</div>
+
+						<div class="bikc-pension-out" id="bikc-pension-out"></div>
+					</section>
+
+					<section class="bikc-panel">
+						<div class="bikc-panel-head">
+							<h3 class="bikc-panel-title"><span class="bikc-step">3</span> Your benefits</h3>
+							<div class="bikc-toggle bikc-toggle--light" id="bikc-benefit-period" role="group" aria-label="Enter benefit costs monthly or yearly">
+								<button type="button" data-bperiod="month" class="is-active">Monthly</button>
+								<button type="button" data-bperiod="year">Yearly</button>
+							</div>
+						</div>
+						<p class="bikc-panel-sub">Tick anything your employer gives you. The fields open up as you go.</p>
+
+						<div id="bikc-benefits">
+							<div class="bikc-group"><h4 class="bikc-group-title">Vehicles</h4>		<div class="bikc-benefit" data-id="car">
+			<label class="bikc-benefit-head" for="bikc-t-car">
+				<input type="checkbox" class="bikc-check" id="bikc-t-car" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Company car</span>
+											<span class="bikc-benefit-blurb">A car you can use privately, including commuting.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-p11d">
+					P11D value					<button type="button" class="bikc-help" data-help="List price including VAT, delivery and factory-fitted options. Not road tax or the first registration fee.">?</button>				</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="">
+						<input type="text" inputmode="decimal" id="bikc-car-p11d" data-f="p11d" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-co2">
+					CO₂ emissions (g/km)									</label>
+
+									<input type="text" inputmode="decimal" id="bikc-car-co2" data-f="co2" value="" placeholder="0">
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-fuel">
+					Fuel type									</label>
+
+									<select id="bikc-car-fuel" data-f="fuel">
+													<option value="petrol" selected="selected">
+								Petrol							</option>
+													<option value="electric">
+								Electric							</option>
+													<option value="hybrid">
+								Plug-in hybrid							</option>
+													<option value="diesel_rde2">
+								Diesel — meets RDE2							</option>
+													<option value="diesel">
+								Diesel — does not meet RDE2							</option>
+											</select>
+
+									</div>
+				<div class="bikc-field bikc-field--sub" data-showif="{&quot;field&quot;:&quot;co2&quot;,&quot;min&quot;:1,&quot;max&quot;:50}">
+
+							<label class="bikc-label" for="bikc-car-range">
+					Electric-only range (miles)									</label>
+
+									<input type="text" inputmode="decimal" id="bikc-car-range" data-f="range" value="" placeholder="0">
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-capital">
+					One-off contribution you made					<button type="button" class="bikc-help" data-help="Capped at £5,000.">?</button>				</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="">
+						<input type="text" inputmode="decimal" id="bikc-car-capital" data-f="capital" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-privatePay">
+					You pay towards private use									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-car-privatePay" data-f="privatePay" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-months">
+					Months available this year									</label>
+
+									<input type="text" inputmode="decimal" id="bikc-car-months" data-f="months" value="12" placeholder="0">
+									</div>
+				<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-car-fuelProvided" data-f="fuelProvided">
+				<label class="bikc-label" for="bikc-car-fuelProvided">
+					My employer pays for my private fuel									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-car-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-car-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="van">
+			<label class="bikc-benefit-head" for="bikc-t-van">
+				<input type="checkbox" class="bikc-check" id="bikc-t-van" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Company van</span>
+											<span class="bikc-benefit-blurb">Only taxable if you use it privately beyond commuting.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-van-privateUse" data-f="privateUse" checked="checked">
+				<label class="bikc-label" for="bikc-van-privateUse">
+					I use it privately beyond commuting									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-van-zeroEmission" data-f="zeroEmission">
+				<label class="bikc-label" for="bikc-van-zeroEmission">
+					It is fully electric									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-van-months">
+					Months available this year									</label>
+
+									<input type="text" inputmode="decimal" id="bikc-van-months" data-f="months" value="12" placeholder="0">
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-van-privatePay">
+					You pay towards private use									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-van-privatePay" data-f="privatePay" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-van-fuelProvided" data-f="fuelProvided">
+				<label class="bikc-label" for="bikc-van-fuelProvided">
+					My employer pays for my private fuel									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-van-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-van-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+		</div><div class="bikc-group"><h4 class="bikc-group-title">Health and wellbeing</h4>		<div class="bikc-benefit" data-id="medical">
+			<label class="bikc-benefit-head" for="bikc-t-medical">
+				<input type="checkbox" class="bikc-check" id="bikc-t-medical" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Private medical insurance</span>
+											<span class="bikc-benefit-blurb">Taxed on the premium your employer pays for you.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-medical-cost">
+					Premium									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-medical-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-medical-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-medical-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="dental">
+			<label class="bikc-benefit-head" for="bikc-t-dental">
+				<input type="checkbox" class="bikc-check" id="bikc-t-dental" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Dental or optical cover</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-dental-cost">
+					Premium									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-dental-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-dental-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-dental-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="gym">
+			<label class="bikc-benefit-head" for="bikc-t-gym">
+				<input type="checkbox" class="bikc-check" id="bikc-t-gym" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Gym or health club membership</span>
+											<span class="bikc-benefit-blurb">Taxable unless it is on your employer's own premises and open to all staff.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-gym-onSite" data-f="onSite">
+				<label class="bikc-label" for="bikc-gym-onSite">
+					It is an on-site facility open to all staff									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub" data-showif="{&quot;field&quot;:&quot;onSite&quot;,&quot;unchecked&quot;:true}">
+
+							<label class="bikc-label" for="bikc-gym-cost">
+					Cost to your employer									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-gym-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-gym-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-gym-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="insurance">
+			<label class="bikc-benefit-head" for="bikc-t-insurance">
+				<input type="checkbox" class="bikc-check" id="bikc-t-insurance" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Critical illness or income protection</span>
+											<span class="bikc-benefit-blurb">Group life cover through a registered scheme is exempt. Standalone policies are not.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-insurance-cost">
+					Premium									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-insurance-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-insurance-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-insurance-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+		</div><div class="bikc-group"><h4 class="bikc-group-title">Money and property</h4>		<div class="bikc-benefit" data-id="loan">
+			<label class="bikc-benefit-head" for="bikc-t-loan">
+				<input type="checkbox" class="bikc-check" id="bikc-t-loan" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Cheap or interest-free loan</span>
+											<span class="bikc-benefit-blurb">Only bites if you owe more than £10,000 at some point in the year.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-loan-balance">
+					Average balance outstanding									</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="">
+						<input type="text" inputmode="decimal" id="bikc-loan-balance" data-f="balance" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-loan-ratePaid">
+					Interest rate you pay (%)									</label>
+
+									<input type="text" inputmode="decimal" id="bikc-loan-ratePaid" data-f="ratePaid" value="0" placeholder="0">
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="accommodation">
+			<label class="bikc-benefit-head" for="bikc-t-accommodation">
+				<input type="checkbox" class="bikc-check" id="bikc-t-accommodation" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Living accommodation</span>
+											<span class="bikc-benefit-blurb">Job-related accommodation — a caretaker's flat, a pub tenancy — is usually exempt.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-accommodation-annualValue">
+					Rateable value									</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="a year">
+						<input type="text" inputmode="decimal" id="bikc-accommodation-annualValue" data-f="annualValue" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-accommodation-employerCost">
+					What the property cost your employer					<button type="button" class="bikc-help" data-help="An extra charge applies above £75,000.">?</button>				</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="">
+						<input type="text" inputmode="decimal" id="bikc-accommodation-employerCost" data-f="employerCost" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-accommodation-rentPaid">
+					Rent you pay									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-accommodation-rentPaid" data-f="rentPaid" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+		</div><div class="bikc-group"><h4 class="bikc-group-title">Everyday perks</h4>		<div class="bikc-benefit" data-id="vouchers">
+			<label class="bikc-benefit-head" for="bikc-t-vouchers">
+				<input type="checkbox" class="bikc-check" id="bikc-t-vouchers" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Vouchers and gift cards</span>
+											<span class="bikc-benefit-blurb">One of the few benefits you pay National Insurance on as well as tax.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-vouchers-cost">
+					Total value									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-vouchers-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="phone">
+			<label class="bikc-benefit-head" for="bikc-t-phone">
+				<input type="checkbox" class="bikc-check" id="bikc-t-phone" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Mobile phone</span>
+											<span class="bikc-benefit-blurb">One phone in your employer's name is exempt. A second phone, or a contract in your own name, is not.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-phone-exempt" data-f="exempt" checked="checked">
+				<label class="bikc-label" for="bikc-phone-exempt">
+					It is my only phone and the contract is in my employer's name									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub" data-showif="{&quot;field&quot;:&quot;exempt&quot;,&quot;unchecked&quot;:true}">
+
+							<label class="bikc-label" for="bikc-phone-cost">
+					Cost									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-phone-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="broadband">
+			<label class="bikc-benefit-head" for="bikc-t-broadband">
+				<input type="checkbox" class="bikc-check" id="bikc-t-broadband" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Home broadband</span>
+											<span class="bikc-benefit-blurb">Taxable where the contract is in your name and your employer pays it.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-broadband-cost">
+					Cost									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-broadband-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="travel">
+			<label class="bikc-benefit-head" for="bikc-t-travel">
+				<input type="checkbox" class="bikc-check" id="bikc-t-travel" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Season ticket or commuting costs</span>
+											<span class="bikc-benefit-blurb">Ordinary commuting paid for by your employer is taxable. A loan you repay is not.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-travel-cost">
+					Value									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-travel-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-travel-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-travel-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="parking">
+			<label class="bikc-benefit-head" for="bikc-t-parking">
+				<input type="checkbox" class="bikc-check" id="bikc-t-parking" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Parking away from work</span>
+											<span class="bikc-benefit-blurb">Parking at or near your workplace is exempt. Anywhere else is not.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-parking-cost">
+					Cost									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-parking-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="childcare">
+			<label class="bikc-benefit-head" for="bikc-t-childcare">
+				<input type="checkbox" class="bikc-check" id="bikc-t-childcare" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Childcare vouchers (legacy scheme)</span>
+											<span class="bikc-benefit-blurb">Closed to new joiners since 2018, but still running for many. Part of the value is exempt.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-childcare-weekly">
+					Voucher value									</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="a week">
+						<input type="text" inputmode="decimal" id="bikc-childcare-weekly" data-f="weekly" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="subs">
+			<label class="bikc-benefit-head" for="bikc-t-subs">
+				<input type="checkbox" class="bikc-check" id="bikc-t-subs" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Professional fees and subscriptions</span>
+											<span class="bikc-benefit-blurb">Exempt if the body is on HMRC's approved List 3. Everything else is taxable.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-subs-approved" data-f="approved" checked="checked">
+				<label class="bikc-label" for="bikc-subs-approved">
+					The body is on HMRC List 3									</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub" data-showif="{&quot;field&quot;:&quot;approved&quot;,&quot;unchecked&quot;:true}">
+
+							<label class="bikc-label" for="bikc-subs-cost">
+					Cost									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-subs-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="relocation">
+			<label class="bikc-benefit-head" for="bikc-t-relocation">
+				<input type="checkbox" class="bikc-check" id="bikc-t-relocation" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Relocation costs</span>
+											<span class="bikc-benefit-blurb">The first £8,000 of qualifying costs is exempt.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-relocation-cost">
+					Total relocation costs paid									</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="one-off">
+						<input type="text" inputmode="decimal" id="bikc-relocation-cost" data-f="cost" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="entertaining">
+			<label class="bikc-benefit-head" for="bikc-t-entertaining">
+				<input type="checkbox" class="bikc-check" id="bikc-t-entertaining" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Staff events above the exemption</span>
+											<span class="bikc-benefit-blurb">Up to £150 a head a year is exempt. Go a penny over and the whole amount is taxable.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-entertaining-cost">
+					Total cost per head									</label>
+
+														<span class="bikc-input-wrap" data-prefix="£" data-suffix="a year">
+						<input type="text" inputmode="decimal" id="bikc-entertaining-cost" data-f="cost" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+				<div class="bikc-benefit" data-id="custom">
+			<label class="bikc-benefit-head" for="bikc-t-custom">
+				<input type="checkbox" class="bikc-check" id="bikc-t-custom" data-toggle="">
+				<span class="bikc-benefit-text">
+					<span class="bikc-benefit-name">Something else</span>
+											<span class="bikc-benefit-blurb">Anything not listed above.</span>
+									</span>
+			</label>
+
+			<div class="bikc-benefit-body">
+						<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-custom-name">
+					What is it?									</label>
+
+									<input type="text" inputmode="text" id="bikc-custom-name" data-f="name" value="" placeholder="">
+									</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-custom-cost">
+					Value									</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-custom-cost" data-f="cost" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+				<div class="bikc-field bikc-field--check">
+
+							<input type="checkbox" id="bikc-custom-ni" data-f="ni">
+				<label class="bikc-label" for="bikc-custom-ni">
+					It is a voucher or cash-like payment					<button type="button" class="bikc-help" data-help="Tick this if National Insurance comes off too.">?</button>				</label>
+
+					</div>
+				<div class="bikc-field bikc-field--sub">
+
+							<label class="bikc-label" for="bikc-custom-salsac">
+					Salary I give up for this					<button type="button" class="bikc-help" data-help="Leave blank unless this is a salary sacrifice arrangement.">?</button>				</label>
+
+														<span class="bikc-input-wrap bikc-input-wrap--recur" data-prefix="£" data-suffix="a month">
+						<input type="text" inputmode="decimal" id="bikc-custom-salsac" data-f="__salsac" data-recur="" value="" placeholder="0">
+					</span>
+
+									</div>
+					</div>
+		</div>
+		</div>						</div>
+					</section>
+
+					<p class="bikc-disclaimer">This is an estimate to help you understand your payslip, not tax advice. It assumes one job, no other income and that your benefits run for the whole tax year. Check your P11D, your payslip or speak to your payroll team for figures you can rely on.</p>
+				</div>
+
+				<div class="bikc-col-results">
+					<div class="bikc-stub" id="bikc-results" aria-live="polite">
+						<div class="bikc-stub-head">
+							<span class="bikc-stub-title">Effect on your payslip</span>
+							<div class="bikc-toggle" role="group" aria-label="Show figures per month or per year">
+								<button type="button" data-period="month" class="is-active">Monthly</button>
+								<button type="button" data-period="year">Yearly</button>
+							</div>
+						</div>
+
+						<div class="bikc-headline">
+							<span class="bikc-headline-label">Extra deducted</span>
+							<span class="bikc-headline-figure" id="bikc-headline">£0.00</span>
+							<span class="bikc-headline-sub" id="bikc-headline-sub">Tick a benefit to see the cost</span>
+						</div>
+
+						<dl class="bikc-ledger" id="bikc-ledger"></dl>
+
+						<div class="bikc-takehome">
+							<div class="bikc-takehome-row">
+								<span>Take-home without benefits</span>
+								<span id="bikc-th-before">£0.00</span>
+							</div>
+							<div class="bikc-takehome-row bikc-takehome-row--after">
+								<span>Take-home with benefits</span>
+								<span id="bikc-th-after">£0.00</span>
+							</div>
+						</div>
+
+						<div class="bikc-meta" id="bikc-meta"></div>
+					</div>
+				</div>
+			</div>
+
+					</div>
+		</div></div>
+</section></main>
+<Fragment slot="body-3">
+<script id="bikc-js" src="/wp-content/plugins/bik-calculator/assets/bikc.js?ver=1.2.0" is:inline></script>
+</Fragment>
+</Base>
